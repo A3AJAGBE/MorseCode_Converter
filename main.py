@@ -1,8 +1,30 @@
 """
 This application converts alphanumerics to morse code.
 """
-
+import re
 from morse_code import INTERNATIONAL_MORSE_CODE
+
+
+def check_message(message):
+    """This function checks the validity of the users input."""
+    feedback = []
+    for char in message:
+        if re.match(r'[A-Za-z0-9 ]', char):
+            feedback.append(True)
+        else:
+            feedback.append(False)
+
+    if feedback_check(feedback):
+        convert(message)
+
+
+def feedback_check(feedback_list):
+    """This function provides the feedback"""
+    if False in feedback_list:
+        print('Invalid input included in the message, only alphabets and numbers are allowed.')
+        return False
+    else:
+        return True
 
 
 def convert(message):
@@ -17,11 +39,11 @@ def convert(message):
             # Add the hash symbol to replace the space between the words
             converted_message += '# '
 
-    return converted_message
+    print(converted_message)
 
 
 # Default displays
 print('Inputs should only be alphanumeric (Alphabets and Numbers).')
 print('The characters will be separated by a space and words will be separated by the hash symbol (#)\n')
 user_input = input('Type your message: \n').upper()
-print(convert(user_input))
+check_message(user_input)
