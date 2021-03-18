@@ -1,5 +1,5 @@
 """
-This application converts alphanumerics to morse code.
+This application converts alphanumeric message to morse code.
 """
 import re
 from morse_code import INTERNATIONAL_MORSE_CODE
