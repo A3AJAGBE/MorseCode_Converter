@@ -3,6 +3,7 @@ This application converts alphanumeric message to morse code.
 """
 import re
 from morse_code import INTERNATIONAL_MORSE_CODE
+from logo import logo
 
 
 def check_message(message):
@@ -43,6 +44,7 @@ def convert(message):
 
 
 # Default displays
+print(logo)
 print('Inputs should only be alphanumeric (Alphabets and Numbers).')
 print('The characters will be separated by a space and words will be separated by the hash symbol (#)\n')
 user_input = input('Type your message: \n').upper()
